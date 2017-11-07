@@ -1,0 +1,101 @@
+﻿<Window x:Class="XamlTemplatesForOperationEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="505.263" Width="506.579">
+    <Window.Resources>
+        <Style x:Key="Integral" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Rectangle Fill="Red" Height="30" Width="30" Margin="3" />
+                            <Viewbox Grid.Row="1">
+                                <TextBlock Text="∫" VerticalAlignment="Stretch" />
+                            </Viewbox>
+                            <Rectangle Grid.Row="2" Fill="Red" Height="30" Width="30" Margin="3" />
+                            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                <Rectangle Fill="Red" Height="30" Width="30" />
+                                <TextBlock Text="d" VerticalAlignment="Center" />
+                                <Rectangle Fill="Red" Height="30" Width="30" />
+                            </StackPanel>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Summa" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Rectangle Fill="Red" Height="30" Width="30" Margin="3" />
+                            <Viewbox Grid.Row="1">
+                                <TextBlock Text="∑" VerticalAlignment="Stretch" />
+                            </Viewbox>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                                <Rectangle Fill="Red" Height="30" Width="30" Margin="3" VerticalAlignment="Center" />
+                                <TextBlock Text="=" VerticalAlignment="Center" />
+                                <Rectangle Fill="Red" Height="30" Width="30" Margin="3" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Rectangle Grid.Row="1" Grid.Column="1" Fill="Red" Height="30" Width="30" HorizontalAlignment="Left" />
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Limit" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Viewbox Grid.Row="0">
+                                <TextBlock Text="lim" VerticalAlignment="Stretch" />
+                            </Viewbox>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" >
+                                <Rectangle Fill="Red" Height="30" Width="30" Margin="3" VerticalAlignment="Center" />
+                                <TextBlock Text="→" VerticalAlignment="Center" />
+                                <Rectangle Fill="Red" Height="30" Width="30" Margin="3" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Rectangle Grid.Row="0" Grid.Column="1" Fill="Red" Height="30" Width="30" HorizontalAlignment="Left" />
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Button Style="{StaticResource Limit}" VerticalAlignment="Center" />
+    </Grid>
+</Window>
