@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkSample", "En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodVsMethodGroupPerformance", "MethodVsMethodGroupPerformance\MethodVsMethodGroupPerformance.csproj", "{08B82D3B-2E1F-4DAB-BBFF-DB900342D0EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithoutUnsubscriptionTestApp", "SubscriptionWithoutUnsubscriptionTestApp\SubscriptionWithoutUnsubscriptionTestApp.csproj", "{5F1DCF41-BD03-43B5-B570-4FC2913B0A8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{08B82D3B-2E1F-4DAB-BBFF-DB900342D0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08B82D3B-2E1F-4DAB-BBFF-DB900342D0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08B82D3B-2E1F-4DAB-BBFF-DB900342D0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1DCF41-BD03-43B5-B570-4FC2913B0A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1DCF41-BD03-43B5-B570-4FC2913B0A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1DCF41-BD03-43B5-B570-4FC2913B0A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1DCF41-BD03-43B5-B570-4FC2913B0A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
