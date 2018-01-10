@@ -1,0 +1,81 @@
+﻿<Window x:Class="TelerikPie3DApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TelerikPie3DApp"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        mc:Ignorable="d">
+    <Grid>
+        <telerik:RadChart>
+            <telerik:RadChart.ItemsSource>
+                <x:Array Type="{x:Type local:Person}">
+                    <local:Person Country="A"
+                                  Money="60" />
+                    <local:Person Country="A"
+                                  Money="45" />
+                    <local:Person Country="B"
+                                  Money="200" />
+                    <local:Person Country="B"
+                                  Money="50" />
+                    <local:Person Country="B"
+                                  Money="80" />
+                    <local:Person Country="C"
+                                  Money="75" />
+                </x:Array>
+            </telerik:RadChart.ItemsSource>
+            <telerik:RadChart.DefaultView>
+                <telerik:ChartDefaultView>
+                    <telerik:ChartDefaultView.ChartArea>
+                        <telerik:ChartArea NoDataString="Custom 'No Data' message">
+                            <ItemsControl.ItemsSource>
+                                <x:Array Type="{x:Type local:Person}">
+                                    <local:Person Country="A"
+                                                  Money="60" />
+                                    <local:Person Country="A"
+                                                  Money="45" />
+                                    <local:Person Country="B"
+                                                  Money="200" />
+                                    <local:Person Country="B"
+                                                  Money="50" />
+                                    <local:Person Country="B"
+                                                  Money="80" />
+                                    <local:Person Country="C"
+                                                  Money="75" />
+                                </x:Array>
+                            </ItemsControl.ItemsSource>
+                            <telerik:ChartArea.DataSeries>
+                                <telerik:DataSeries>
+                                    <telerik:DataSeries.Definition>
+                                        <telerik:Pie3DSeriesDefinition LabelOffset="240" >
+                                            <telerik:Pie3DSeriesDefinition.Appearance>
+                                                <telerik:SeriesAppearanceSettings StrokeThickness="20" Stroke="BlueViolet" />
+                                            </telerik:Pie3DSeriesDefinition.Appearance>
+                                            <telerik:Pie3DSeriesDefinition.AnimationSettings>
+                                                <telerik:AnimationSettings DefaultSeriesDelay="0:0:0.5"
+                                                                           ItemAnimationDuration="0:0:0.5"
+                                                                           ItemDelay="0:0:0.5"
+                                                                           TotalSeriesAnimationDuration="0:0:0.5" />
+                                            </telerik:Pie3DSeriesDefinition.AnimationSettings>
+                                        </telerik:Pie3DSeriesDefinition>
+                                    </telerik:DataSeries.Definition>
+                                    <telerik:DataPoint YValue="28" Label="Germany" />
+                                    <telerik:DataPoint YValue="163" Label="Russia" />
+                                    <telerik:DataPoint YValue="63" />
+                                    <telerik:DataPoint YValue="74" />
+                                    <telerik:DataPoint YValue="77" />
+                                    <telerik:DataPoint YValue="85" />
+                                    <telerik:DataPoint YValue="89" />
+                                    <telerik:DataPoint YValue="80" />
+                                </telerik:DataSeries>
+                            </telerik:ChartArea.DataSeries>
+                        </telerik:ChartArea>
+                    </telerik:ChartDefaultView.ChartArea>
+                </telerik:ChartDefaultView>
+            </telerik:RadChart.DefaultView>
+        </telerik:RadChart>
+    </Grid>
+</Window>
