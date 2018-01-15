@@ -1,0 +1,23 @@
+﻿<Window x:Class="ExpanderHeaderAlignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Width="525"
+        Height="350">
+    <Grid>
+        <Expander Header="Hello">
+            <Expander.HeaderTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <TextBlock Margin="10"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Expander}}, Path=Header}"
+                                   TextWrapping="Wrap" />
+                    </Grid>
+                </DataTemplate>
+            </Expander.HeaderTemplate>
+            <TextBlock HorizontalAlignment="Center" />
+        </Expander>
+    </Grid>
+</Window>

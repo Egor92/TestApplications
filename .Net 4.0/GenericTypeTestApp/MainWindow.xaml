@@ -1,0 +1,53 @@
+﻿<Window x:Class="GenericTypeTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:app="clr-namespace:GenericTypeTestApp" xmlns:system="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="350" Width="525">
+    <FrameworkElement.Resources>
+        <DataTemplate DataType="{x:Type app:IntData}">
+            <TextBlock Text="{Binding Value}"
+                       Background="LightSkyBlue"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type app:StringData}">
+            <TextBox Text="{Binding Value}"
+                     Background="DarkOrange"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type app:BoolData}">
+            <CheckBox IsChecked="{Binding Value}"
+                      Background="GreenYellow"/>
+        </DataTemplate>
+
+        <DataTemplate>
+            <DataTemplate.DataType>
+                <app:GenericType ClassName="GenericTypeTestApp.IData"
+                                 AssemblyName="GenericTypeTestApp">
+                    <app:GenericType.Generics>
+                        <x:Type Type="{x:Type system:Int32}" />
+                    </app:GenericType.Generics>
+                </app:GenericType>
+            </DataTemplate.DataType>
+            <TextBlock Text="{Binding Value}" />
+        </DataTemplate>
+    </FrameworkElement.Resources>
+    
+    <Grid>
+        <ItemsControl x:Name="MyItemsControl">
+            <ItemsControl.Items>
+                <app:IntData Value="15" />
+                <app:StringData Value="Oh? key!" />
+                <app:BoolData Value="False" />
+                <app:BoolData Value="True" />
+                <app:IntData Value="15" />
+                <app:IntData Value="15" />
+                <app:StringData Value="Charley" />
+                <app:BoolData Value="True" />
+                <app:IntData Value="15" />
+                <app:StringData Value="Zordon, help me!" />
+                <app:BoolData Value="False" />
+                <app:IntData Value="15" />
+            </ItemsControl.Items>
+        </ItemsControl>
+    </Grid>
+</Window>

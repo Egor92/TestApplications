@@ -1,0 +1,26 @@
+﻿<Window x:Class="MultiBindingTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MultiBindingTest"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBlock Text="{Binding Value, Mode=OneWay}" />
+        <TextBlock Text="{Binding Text, Mode=OneWay}" />
+        <TextBlock>
+            <TextBlock.Text>
+                <MultiBinding Converter="{local:TextMultiConverter}">
+                    <Binding Path="Value" Mode="OneWay" />
+                    <Binding Path="Text" Mode="OneWay" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock>
+            <TextBlock.Text>
+                <local:ValueBindingExtended Binding="{Binding Value, Mode=OneWay}"
+                                            Text="{Binding Text, Mode=OneWay}"
+                                            Converter="{local:TextConverter}"
+                                            Mode="OneTime" />
+            </TextBlock.Text>
+        </TextBlock>
+    </StackPanel>
+</Window>

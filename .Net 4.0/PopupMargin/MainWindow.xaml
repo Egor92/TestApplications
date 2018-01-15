@@ -1,0 +1,36 @@
+﻿<Window x:Class="PopupMargin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Width="525"
+        Height="350">
+    <Grid>
+        <Expander x:Name="ExpanderPeople"
+                  MaxHeight="29"
+                  Background="Green">
+            <Expander.Header>
+                <TextBlock HorizontalAlignment="Center"
+                           Text="Header" />
+            </Expander.Header>
+        </Expander>
+        <Popup x:Name="PopupPeple"
+               Width="{Binding ElementName=ExpanderPeople,
+                               Path=ActualWidth}"
+               AllowsTransparency="True"
+               IsOpen="{Binding ElementName=ExpanderPeople,
+                                Path=IsExpanded,
+                                Mode=TwoWay}"
+               Placement="Custom"
+               PlacementTarget="{Binding ElementName=ExpanderPeople}"
+               StaysOpen="True"
+               PopupAnimation="Slide"
+               Loaded="PopupPeple_OnLoaded"
+               >
+            <Grid HorizontalAlignment="Stretch"
+                  Background="Green">
+                <TextBlock Text="Popup"
+                           TextWrapping="Wrap" />
+            </Grid>
+        </Popup>
+    </Grid>
+</Window>

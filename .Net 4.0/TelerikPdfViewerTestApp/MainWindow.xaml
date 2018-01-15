@@ -1,0 +1,68 @@
+﻿<Window x:Class="TelerikPdfViewerTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fixed="clr-namespace:Telerik.Windows.Documents.Fixed;assembly=Telerik.Windows.Controls.FixedDocumentViewers"
+        xmlns:local="clr-namespace:TelerikPdfViewerTestApp"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="MainWindow"
+        Width="800"
+        Height="500"
+        d:DataContext="{d:DesignInstance local:ViewModel}"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <fixed:PdfDocumentSourceValueConverter x:Key="PdfDocumentSourceValueConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <Button Command="{Binding OpenCommand}"
+                        Content="Open" />
+                <Button Command="{Binding CloseCommand}"
+                        Content="Close" />
+                <Separator />
+                <TextBox Text="{Binding BookmarkName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Command="{Binding NavigateToBookmarkCommand}"
+                        Content="Navigate" />
+                <Separator />
+            </StackPanel>
+
+            <ListView Grid.Row="1"
+                      HorizontalContentAlignment="Stretch"
+                      ItemsSource="{Binding BookmarkVMs,
+                                            Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock HorizontalAlignment="Stretch"
+                                   TextWrapping="Wrap">
+                            <Hyperlink Command="{Binding NavigateCommand}">
+                                <Run Text="{Binding Title, Mode=OneWay}" />
+                            </Hyperlink>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <telerik:RadPdfViewer x:Name="PdfViewer"
+                              Grid.Column="1"
+                              DocumentSource="{Binding DocumentSource,
+                                                       Mode=OneWay,
+                                                       Converter={StaticResource PdfDocumentSourceValueConverter}}" />
+    </Grid>
+</Window>

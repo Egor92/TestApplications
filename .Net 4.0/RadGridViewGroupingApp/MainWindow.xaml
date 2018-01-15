@@ -1,0 +1,19 @@
+﻿<Window x:Class="RadGridViewGroupingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="MainWindow"
+        Width="525"
+        Height="350">
+    <Grid>
+        <telerik:RadGridView x:Name="MyRadGridView"
+                             AutoExpandGroups="True"
+                             AutoGenerateColumns="False"
+                             GroupRenderMode="Flat">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name, Mode=OneWay}" />
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Index, Mode=OneWay}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</Window>

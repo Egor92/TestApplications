@@ -1,0 +1,20 @@
+﻿<Window x:Class="MouseRouredEventArgsSourceApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        MouseMove="MainWindow_OnMouseMove">
+    <StackPanel Background="Transparent">
+        <Grid Margin="20"
+              Background="Red">
+            <Border Width="150"
+                    Height="50"
+                    BorderBrush="Black"
+                    BorderThickness="2" />
+        </Grid>
+        <Button Content="Button" />
+        <TextBlock Name="OutputTextBlock"
+                   x:FieldModifier="private" />
+    </StackPanel>
+</Window>

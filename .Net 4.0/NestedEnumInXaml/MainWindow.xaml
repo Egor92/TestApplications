@@ -1,0 +1,10 @@
+﻿<Window x:Class="NestedEnumInXaml.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ex="clr-namespace:Intecom.Foundation.Wpf.MarkupExtensions;assembly=Intecom.Foundation.Wpf"
+        xmlns:local="clr-namespace:NestedEnumInXaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <ListBox ItemsSource="{ex:EnumValues {x:Type local:MyClass1+MyClass2+MyClass3+MyClass4+MyClass5+MyEnum}}" />
+    </Grid>
+</Window>

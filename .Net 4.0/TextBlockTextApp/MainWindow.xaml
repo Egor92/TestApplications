@@ -1,0 +1,20 @@
+﻿<Window x:Class="TextBlockTextApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Width="525"
+        Height="350">
+    <Grid>
+        <TextBlock Name="tb">
+            Далее показан
+            <Bold>жирный текст</Bold>
+            ,
+            <Italic Background="#FFC3B3B3">курсивный текст</Italic>
+            и
+            <Bold>
+                <Italic>жирный текст с курсивом</Italic>
+            </Bold>
+            .
+        </TextBlock>
+    </Grid>
+</Window>
