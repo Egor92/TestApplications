@@ -21,4 +21,3 @@ namespace EnumerableSequenceEqualTestApp
         }
     }
 }
-src

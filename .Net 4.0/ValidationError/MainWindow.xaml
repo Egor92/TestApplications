@@ -34,6 +34,9 @@
                                 ValidatesOnDataErrors=True,
                                 NotifyOnValidationError=True}" />
         <TextBox Style="{StaticResource ValidationStyle}"
+                 Tag="{Binding A,
+                               ValidatesOnDataErrors=True,
+                               NotifyOnValidationError=True}"
                  Text="{Binding A.Property1,
                                 Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged,

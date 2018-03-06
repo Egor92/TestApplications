@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SuperPackage</id>
+    <version>1.0.0</version>
+    <authors>Egor</authors>
+    <owners>Egor</owners>
+    <licenseUrl>https://github.com</licenseUrl>
+    <projectUrl>https://github.com</projectUrl>
+    <iconUrl>https://cdn1.iconfinder.com/data/icons/animals-18/154/cat-seat-skin-body-animal-512.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>THIS IS SUPER PACKAGE!</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Tag1 Tag2</tags>
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\Project1\bin\Debug\Project1.dll" target="lib" />
+    <file src=".\Project2\bin\Debug\Project2.dll" target="lib" />
+    <file src=".\Project3\bin\Debug\Project3.dll" target="lib" />
+  </files>    
+</package>

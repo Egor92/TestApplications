@@ -115,6 +115,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopupParentApp", "PopupPare
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikPdfViewerTestApp", "TelerikPdfViewerTestApp\TelerikPdfViewerTestApp.csproj", "{91976660-DDE7-42BB-9D87-86DD7D0690B9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MultiNugetPackage", "MultiNugetPackage", "{895F5279-6846-4DAE-B977-297D35892088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1", "Project1\Project1.csproj", "{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project2", "Project2\Project2.csproj", "{8C85E7CC-5284-430C-8EEE-01B5D33EC715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3", "Project3\Project3.csproj", "{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabControlTest", "TabControlTest\TabControlTest.csproj", "{4F4309D1-0CD3-437C-9CC4-A99700459D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{017AF18E-9CFF-4E30-8176-533FB5BE4299}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TestApp.vsmdi
@@ -627,9 +639,64 @@ Global
 		{91976660-DDE7-42BB-9D87-86DD7D0690B9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{91976660-DDE7-42BB-9D87-86DD7D0690B9}.Release|x86.ActiveCfg = Release|x86
 		{91976660-DDE7-42BB-9D87-86DD7D0690B9}.Release|x86.Build.0 = Release|x86
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1}.Release|x86.ActiveCfg = Release|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715}.Release|x86.ActiveCfg = Release|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Debug|x86.ActiveCfg = Debug|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Debug|x86.Build.0 = Debug|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Release|Any CPU.ActiveCfg = Release|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Release|x86.ActiveCfg = Release|x86
+		{4F4309D1-0CD3-437C-9CC4-A99700459D66}.Release|x86.Build.0 = Release|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Debug|x86.ActiveCfg = Debug|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Debug|x86.Build.0 = Debug|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|Any CPU.ActiveCfg = Release|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|Mixed Platforms.Build.0 = Release|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|x86.ActiveCfg = Release|x86
+		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FCC297DC-AACF-42DA-8A86-1B35BD74A9A1} = {895F5279-6846-4DAE-B977-297D35892088}
+		{8C85E7CC-5284-430C-8EEE-01B5D33EC715} = {895F5279-6846-4DAE-B977-297D35892088}
+		{40E34FDC-1F6E-4358-AFC6-EEAC6A7B4E32} = {895F5279-6846-4DAE-B977-297D35892088}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VD_Solution = <?xml version="1.0" encoding="utf-16"?>|§r|§n<DocumentsSolution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">|§r|§n  <m_persistedPinnedDocumentGroupLabels />|§r|§n</DocumentsSolution>

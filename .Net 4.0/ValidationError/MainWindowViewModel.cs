@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 using ReactiveUI;
+using System;
 
 namespace ValidationError
 {
     public class MainWindowViewModel : ReactiveObject, IDataErrorInfo
     {
+        #region Ctor
+
+        public MainWindowViewModel()
+        {
+            this.ObservableForProperty(x => x.A.Property1)
+                .Subscribe(_ => this.RaisePropertyChanged("A"));
+        }
+
+        #endregion
+
         #region Property1
 
         private string _Property1 = "ggr";
@@ -61,6 +68,11 @@ namespace ValidationError
                     if (Property2 != null && !Property2.EndsWith("2"))
                         return "Property2 fail";
                 }
+                if (columnName == "A")
+                {
+                    if (A.Property1 != null && !A.Property1.EndsWith("1"))
+                        return "A fail";
+                }
                 return null;
             }
         }
@@ -93,11 +105,11 @@ namespace ValidationError
         {
             get
             {
-                if (columnName == "Property1")
+                /*if (columnName == "Property1")
                 {
                     if (Property1 != null && !Property1.EndsWith("1"))
                         return "Property1 fail";
-                }
+                }*/
                 return null;
             }
         }
