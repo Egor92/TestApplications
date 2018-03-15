@@ -127,6 +127,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabControlTest", "TabContro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{017AF18E-9CFF-4E30-8176-533FB5BE4299}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisableWindowsHotKeysApp", "DisableWindowsHotKeysApp\DisableWindowsHotKeysApp.csproj", "{0E558FEC-6726-49EB-9186-F71BDFC495E4}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TestApp.vsmdi
@@ -689,6 +691,16 @@ Global
 		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|Mixed Platforms.Build.0 = Release|x86
 		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|x86.ActiveCfg = Release|x86
 		{017AF18E-9CFF-4E30-8176-533FB5BE4299}.Release|x86.Build.0 = Release|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Debug|x86.ActiveCfg = Debug|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Debug|x86.Build.0 = Debug|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Release|Any CPU.ActiveCfg = Release|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Release|x86.ActiveCfg = Release|x86
+		{0E558FEC-6726-49EB-9186-F71BDFC495E4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
