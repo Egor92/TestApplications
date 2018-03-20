@@ -3,7 +3,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
+using SharpAvi;
+using SharpAvi.Codecs;
 using SharpAvi.Output;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
@@ -48,21 +49,47 @@ namespace CaptureVideoApp
             _stopThread.Dispose();
         }
 
+        public AviWriter CreateAviWriter()
+        {
+            return new AviWriter(_recorderParams.FileName)
+            {
+                FramesPerSecond = _recorderParams.FramesPerSecond,
+                EmitIndex1 = true,
+            };
+        }
+
+        public IAviVideoStream CreateVideoStream(AviWriter writer)
+        {
+            // Select encoder type based on FOURCC of codec
+            if (_recorderParams.Codec == KnownFourCCs.Codecs.Uncompressed)
+                return writer.AddUncompressedVideoStream(_recorderParams.Width, _recorderParams.Height);
+
+            if (_recorderParams.Codec == KnownFourCCs.Codecs.MotionJpeg)
+                return writer.AddMotionJpegVideoStream(_recorderParams.Width, _recorderParams.Height, _recorderParams.Quality);
+
+            return writer.AddMpeg4VideoStream(_recorderParams.Width, _recorderParams.Height, (double)writer.FramesPerSecond,
+                // It seems that all tested MPEG-4 VfW codecs ignore the quality affecting parameters passed through VfW API
+                // They only respect the settings from their own configuration dialogs, and Mpeg4VideoEncoder currently has no support for this
+                                              quality: _recorderParams.Quality,
+                                              codec: _recorderParams.Codec,
+                // Most of VfW codecs expect single-threaded use, so we wrap this encoder to special wrapper
+                // Thus all calls to the encoder (including its instantiation) will be invoked on a single thread although encoding (and writing) is performed asynchronously
+                                              forceSingleThreadedAccess: true);
+        }
+
         private void RecordScreen()
         {
-
             // Create AVI writer and specify FPS
-            _writer = _recorderParams.CreateAviWriter();
+            _writer = CreateAviWriter();
 
             // Create video stream
-            _videoStream = _recorderParams.CreateVideoStream(_writer);
+            _videoStream = CreateVideoStream(_writer);
             // Set only name. Other properties were when creating stream, 
             // either explicitly by arguments or implicitly by the encoder used
             _videoStream.Name = "Captura";
 
-            var frameInterval = TimeSpan.FromSeconds(1 / (double)_writer.FramesPerSecond);
+            var frameInterval = TimeSpan.FromSeconds(1/(double)_writer.FramesPerSecond);
             var buffer = new byte[_recorderParams.Width*_recorderParams.Height*4];
-            Task videoWriteTask = null;
             var timeTillNextFrame = TimeSpan.Zero;
 
             while (!_stopThread.WaitOne(timeTillNextFrame))
@@ -71,12 +98,6 @@ namespace CaptureVideoApp
 
                 Screenshot(buffer);
 
-                // Wait for the previous frame is written
-                if (videoWriteTask != null)
-                {
-                    videoWriteTask.Wait();
-                }
-
                 // Start asynchronous (encoding and) writing of the new frame
                 _videoStream.WriteFrame(true, buffer, 0, buffer.Length);
 
@@ -84,15 +105,9 @@ namespace CaptureVideoApp
                 if (timeTillNextFrame < TimeSpan.Zero)
                     timeTillNextFrame = TimeSpan.Zero;
             }
-
-            // Wait for the last frame is written
-            if (videoWriteTask != null)
-            {
-                videoWriteTask.Wait();
-            }
         }
 
-        public void Screenshot(byte[] buffer)
+        private void Screenshot(byte[] buffer)
         {
             using (var bmp = new Bitmap(_recorderParams.Width, _recorderParams.Height))
             {
