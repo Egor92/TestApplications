@@ -135,6 +135,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterlockedApp", "Interlock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalRandom", "NormalRandom\NormalRandom.csproj", "{BC5122D5-E695-410B-B99D-E1842C029BF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisableHotkeysApp", "DisableHotkeysApp\DisableHotkeysApp.csproj", "{CAACDD87-7971-4D0F-8F3A-DEA36878A729}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TestApp.vsmdi
@@ -737,6 +739,16 @@ Global
 		{BC5122D5-E695-410B-B99D-E1842C029BF0}.Release|Mixed Platforms.Build.0 = Release|x86
 		{BC5122D5-E695-410B-B99D-E1842C029BF0}.Release|x86.ActiveCfg = Release|x86
 		{BC5122D5-E695-410B-B99D-E1842C029BF0}.Release|x86.Build.0 = Release|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Debug|x86.ActiveCfg = Debug|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Debug|x86.Build.0 = Debug|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Release|Any CPU.ActiveCfg = Release|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Release|Mixed Platforms.Build.0 = Release|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Release|x86.ActiveCfg = Release|x86
+		{CAACDD87-7971-4D0F-8F3A-DEA36878A729}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
