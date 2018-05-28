@@ -37,16 +37,18 @@ namespace SendArchives.Models
                 var archiveFileInfos = convertedFileInfos.Select(MakeArchive).ToList();
 
                 var emailSender = new EmailSender(emailProperties);
+                bool areAllSendingSuccessful = true;
                 foreach (var archiveFileInfo in archiveFileInfos)
                 {
                     var sendResult = emailSender.Send(archiveFileInfo);
-                    credentialsSendingInfo.IsSendingSuccessfulByLogin[archiveFileInfo.Email] = sendResult.IsSuccess;
+                    areAllSendingSuccessful &= sendResult.IsSuccess;
+                    credentialsSendingInfo.IsSendingSuccessfulByEmail[archiveFileInfo.Email] = $"Result: {sendResult.IsSuccess}. {sendResult.ErrorMessage}";
                     File.Delete(archiveFileInfo.FilePath);
                 }
 
                 return new Result<CredentialsSendingInfo>
                 {
-                    IsSuccess = credentialsSendingInfo.IsSendingSuccessfulByLogin.All(x => x.Value == true),
+                    IsSuccess = areAllSendingSuccessful,
                     Data = credentialsSendingInfo,
                 };
             }

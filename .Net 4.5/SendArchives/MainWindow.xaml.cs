@@ -12,12 +12,12 @@ namespace SendArchives
 
         private void PasswordBox_OnPasswordChanged1(object sender, RoutedEventArgs e)
         {
-            ((MainWindowViewModel) DataContext).SenderPassword = ((PasswordBox) sender).Password;
+            ((MainWindowViewModel) DataContext).UserPassword = ((PasswordBox) sender).Password;
         }
 
         private void PasswordBox_OnPasswordChanged2(object sender, RoutedEventArgs e)
         {
-            ((MainWindowViewModel)DataContext).SenderPasswordRepeat = ((PasswordBox)sender).Password;
+            ((MainWindowViewModel)DataContext).UserPasswordRepeat = ((PasswordBox)sender).Password;
         }
     }
 }

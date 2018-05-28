@@ -46,20 +46,26 @@
         </UniformGrid>
         <UniformGrid Rows="1">
             <TextBlock VerticalAlignment="Center"
-                       Text="Sender e-mail" />
+                       Text="Domain" />
             <TextBox VerticalAlignment="Center"
-                     Text="{Binding SenderEmail, Mode=TwoWay}" />
+                     Text="{Binding Domain, Mode=TwoWay}" />
         </UniformGrid>
         <UniformGrid Rows="1">
             <TextBlock VerticalAlignment="Center"
-                       Text="Sender password" />
+                       Text="User name" />
+            <TextBox VerticalAlignment="Center"
+                     Text="{Binding UserName, Mode=TwoWay}" />
+        </UniformGrid>
+        <UniformGrid Rows="1">
+            <TextBlock VerticalAlignment="Center"
+                       Text="User password" />
             <PasswordBox VerticalAlignment="Center"
                          PasswordChanged="PasswordBox_OnPasswordChanged1"
                          PasswordChar="*" />
         </UniformGrid>
         <UniformGrid Rows="1">
             <TextBlock VerticalAlignment="Center"
-                       Text="Repeat sender password" />
+                       Text="Repeat user password" />
             <PasswordBox VerticalAlignment="Center"
                          PasswordChanged="PasswordBox_OnPasswordChanged2"
                          PasswordChar="*" />

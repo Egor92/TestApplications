@@ -18,7 +18,7 @@ namespace SendArchives.Models
         {
             try
             {
-                using (var mail = new MailMessage(_emailProperties.SenderEmail, archiveFileInfo.Email))
+                using (var mail = new MailMessage(_emailProperties.UserName, archiveFileInfo.Email))
                 {
                     var client = new SmtpClient
                     {
@@ -28,7 +28,7 @@ namespace SendArchives.Models
                         DeliveryMethod = _emailProperties.DeliveryMethod,
                         EnableSsl = _emailProperties.EnableSsl,
                         UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(_emailProperties.SenderEmail, _emailProperties.SenderPassword),
+                        Credentials = new NetworkCredential(_emailProperties.UserName, _emailProperties.UserPassword, _emailProperties.Domain),
                     };
 
                     mail.BodyEncoding = Encoding.UTF8;

@@ -89,21 +89,27 @@ namespace SendArchives
 
         #endregion
 
-        #region SenderEmail
+        #region Domain
 
-        public string SenderEmail { get; set; }
+        public string Domain { get; set; }
+
+        #endregion
+
+        #region UserName
+
+        public string UserName { get; set; }
 
         #endregion
 
         #region SenderPassword
 
-        public string SenderPassword { get; set; }
+        public string UserPassword { get; set; }
 
         #endregion
 
         #region SenderPasswordRepeat
 
-        public string SenderPasswordRepeat { get; set; }
+        public string UserPasswordRepeat { get; set; }
 
         #endregion
 
@@ -178,19 +184,19 @@ namespace SendArchives
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(SenderEmail))
+            if (string.IsNullOrWhiteSpace(UserName))
             {
                 MessageBox.Show("Sender e-mail must be set");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(SenderPassword))
+            if (string.IsNullOrWhiteSpace(UserPassword))
             {
                 MessageBox.Show("Sender password must be set");
                 return;
             }
 
-            if (!string.Equals(SenderPassword, SenderPasswordRepeat))
+            if (!string.Equals(UserPassword, UserPasswordRepeat))
             {
                 MessageBox.Show("Passwords aren't equals");
                 return;
@@ -214,11 +220,12 @@ namespace SendArchives
                         Timeout = Timeout,
                         DeliveryMethod = DeliveryMethod,
                         EnableSsl = EnableSsl,
-                        SenderEmail = SenderEmail,
-                        SenderPassword = SenderPassword,
+                        Domain = Domain,
+                        UserName = UserName,
+                        UserPassword = UserPassword,
                     };
                     var result = _credentialsSender.Send(InputDataFilePath, emailProperties);
-                    var aggregatedResult = result.Data.IsSendingSuccessfulByLogin.Select(x => string.Format($"{x.Key}: sending result - {x.Value}"))
+                    var aggregatedResult = result.Data.IsSendingSuccessfulByEmail.Select(x => string.Format($"{x.Key} - {x.Value}"))
                                                  .Aggregate(string.Empty, (s1, s2) => $"{s1}\n{s2}");
 
                     aggregatedResult = $"{result.ErrorMessage}\n{aggregatedResult}";

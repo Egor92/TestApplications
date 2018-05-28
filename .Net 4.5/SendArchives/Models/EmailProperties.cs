@@ -9,7 +9,8 @@ namespace SendArchives.Models
         public int Timeout { get; set; }
         public SmtpDeliveryMethod DeliveryMethod { get; set; }
         public bool EnableSsl { get; set; }
-        public string SenderEmail { get; set; }
-        public string SenderPassword { get; set; }
+        public string Domain { get; set; }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
     }
 }

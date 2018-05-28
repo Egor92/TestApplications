@@ -4,6 +4,6 @@ namespace SendArchives.Models
 {
     public class CredentialsSendingInfo
     {
-        public Dictionary<string, bool> IsSendingSuccessfulByLogin { get; } = new Dictionary<string, bool>();
+        public Dictionary<string, string> IsSendingSuccessfulByEmail { get; } = new Dictionary<string, string>();
     }
 }
