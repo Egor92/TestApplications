@@ -8,7 +8,7 @@ namespace SendArchives.Models
         public UserFileInfo MakeArchive(UserFileInfo userFileInfo)
         {
             var directoryPath = Path.GetDirectoryName(userFileInfo.FilePath);
-            var archiveFilePath = Path.Combine(directoryPath, "credentials.zip");
+            var archiveFilePath = Path.Combine(directoryPath, $"{userFileInfo.Login}.zip");
 
             using (var zip = new ZipFile())
             {
@@ -20,6 +20,7 @@ namespace SendArchives.Models
             return new UserFileInfo
             {
                 ArchivePassword = userFileInfo.ArchivePassword,
+                Login = userFileInfo.Login,
                 Email = userFileInfo.Email,
                 FilePath = archiveFilePath,
             };

@@ -42,7 +42,7 @@ namespace SendArchives.Models
                 {
                     var sendResult = emailSender.Send(archiveFileInfo);
                     areAllSendingSuccessful &= sendResult.IsSuccess;
-                    credentialsSendingInfo.IsSendingSuccessfulByEmail[archiveFileInfo.Email] = $"Result: {sendResult.IsSuccess}. {sendResult.ErrorMessage}";
+                    credentialsSendingInfo.IsSendingSuccessfulByLogin[archiveFileInfo.Login] = $"Result: {sendResult.IsSuccess}. {sendResult.ErrorMessage}";
                     File.Delete(archiveFileInfo.FilePath);
                 }
 

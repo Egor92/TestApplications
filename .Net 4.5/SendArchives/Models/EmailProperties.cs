@@ -12,5 +12,7 @@ namespace SendArchives.Models
         public string Domain { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
+        public string SenderEmail { get; set; }
+        public string MessageBody { get; set; }
     }
 }

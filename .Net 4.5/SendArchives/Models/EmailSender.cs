@@ -18,9 +18,9 @@ namespace SendArchives.Models
         {
             try
             {
-                using (var mail = new MailMessage(_emailProperties.UserName, archiveFileInfo.Email))
+                using (var mail = new MailMessage(_emailProperties.SenderEmail, archiveFileInfo.Email))
                 {
-                    var client = new SmtpClient
+                    SmtpClient client = new SmtpClient
                     {
                         Host = _emailProperties.Host,
                         Port = _emailProperties.Port,
@@ -35,18 +35,7 @@ namespace SendArchives.Models
                     mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
                     mail.Attachments.Add(new Attachment(archiveFileInfo.FilePath));
                     mail.Subject = "Подключение к СИВ ОПОП";
-                    mail.Body = @"Здравствуйте!
-
-Вам предоставлен доступ к Системе информационного взаимодействия общественных пунктов охраны порядка (СИВ ОПОП, Система).
-
-Для работы с СИВ ОПОП в адресную строку браузера введите: https://opop.mos.ru 
-
-Далее введите свой логин и пароль (в архиве).
-При возникновении вопросов по работе с Системой обращайтесь в службу технической поддержки по E-mail: opop_support@mos.ru
-
-Для получения пароля от архива с Вашими учетными данными обращайтесь по номеру: 
-
-8 (495)988-22-70 доб. 77854";
+                    mail.Body = _emailProperties.MessageBody;
                     client.Send(mail);
                 }
                 return new Result

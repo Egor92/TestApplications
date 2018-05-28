@@ -27,6 +27,18 @@ namespace SendArchives
             Timeout = 4000;
             DeliveryMethod = SmtpDeliveryMethod.Network;
             EnableSsl = true;
+            MessageBody = @"Здравствуйте!
+
+Вам предоставлен доступ к Системе информационного взаимодействия общественных пунктов охраны порядка (СИВ ОПОП, Система).
+
+Для работы с СИВ ОПОП в адресную строку браузера введите: https://opop.mos.ru 
+
+Далее введите свой логин и пароль (в архиве).
+При возникновении вопросов по работе с Системой обращайтесь в службу технической поддержки по E-mail: opop_support@mos.ru
+
+Для получения пароля от архива с Вашими учетными данными обращайтесь по номеру: 
+
+8 (495)988-22-70 доб. 77854";
         }
 
         #endregion
@@ -113,6 +125,18 @@ namespace SendArchives
 
         #endregion
 
+        #region SenderEmail
+
+        public string SenderEmail { get; set; }
+
+        #endregion
+
+        #region MessageBody
+
+        public string MessageBody { get; set; }
+
+        #endregion
+
         #region InputDataFilePath
 
         private string _inputDataFilePath;
@@ -186,19 +210,31 @@ namespace SendArchives
 
             if (string.IsNullOrWhiteSpace(UserName))
             {
-                MessageBox.Show("Sender e-mail must be set");
+                MessageBox.Show("User name must be set");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(UserPassword))
             {
-                MessageBox.Show("Sender password must be set");
+                MessageBox.Show("User password must be set");
                 return;
             }
 
             if (!string.Equals(UserPassword, UserPasswordRepeat))
             {
-                MessageBox.Show("Passwords aren't equals");
+                MessageBox.Show("User passwords aren't equals");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(SenderEmail))
+            {
+                MessageBox.Show("Sender e-mail must be set");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MessageBody))
+            {
+                MessageBox.Show("Message body must be set");
                 return;
             }
 
@@ -223,9 +259,11 @@ namespace SendArchives
                         Domain = Domain,
                         UserName = UserName,
                         UserPassword = UserPassword,
+                        SenderEmail = SenderEmail,
+                        MessageBody = MessageBody,
                     };
                     var result = _credentialsSender.Send(InputDataFilePath, emailProperties);
-                    var aggregatedResult = result.Data.IsSendingSuccessfulByEmail.Select(x => string.Format($"{x.Key} - {x.Value}"))
+                    var aggregatedResult = result.Data.IsSendingSuccessfulByLogin.Select(x => string.Format($"{x.Key} - {x.Value}"))
                                                  .Aggregate(string.Empty, (s1, s2) => $"{s1}\n{s2}");
 
                     aggregatedResult = $"{result.ErrorMessage}\n{aggregatedResult}";

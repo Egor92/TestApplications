@@ -7,78 +7,149 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="{Binding Title, Mode=OneWay}"
         Width="400"
-        Height="300"
+        Height="450"
         d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-    <UniformGrid Columns="1"
-                 IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Host" />
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding Host, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Port" />
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding Port, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Timeout" />
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding Timeout, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Delivery method" />
-            <ComboBox VerticalAlignment="Center"
-                      ItemsSource="{local:EnumValues {x:Type mail:SmtpDeliveryMethod}}"
-                      SelectedItem="{Binding DeliveryMethod, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Enable SSL" />
-            <CheckBox VerticalAlignment="Center"
-                      IsChecked="{Binding EnableSsl, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Domain" />
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding Domain, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="User name" />
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding UserName, Mode=TwoWay}" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="User password" />
-            <PasswordBox VerticalAlignment="Center"
-                         PasswordChanged="PasswordBox_OnPasswordChanged1"
-                         PasswordChar="*" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Repeat user password" />
-            <PasswordBox VerticalAlignment="Center"
-                         PasswordChanged="PasswordBox_OnPasswordChanged2"
-                         PasswordChar="*" />
-        </UniformGrid>
-        <UniformGrid Rows="1">
-            <TextBlock VerticalAlignment="Center"
-                       Text="Select inpit data file" />
-            <Button MinHeight="20"
-                    VerticalAlignment="Center"
-                    Command="{Binding SelectInpitFileCommand}"
-                    Content="{Binding InputDataFilePath, Mode=TwoWay}" />
-        </UniformGrid>
-        <Button Command="{Binding SendCommand}"
+    <Grid IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="150" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Host" />
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding Host, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Port" />
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding Port, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Timeout" />
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding Timeout, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Delivery method" />
+        <ComboBox Grid.Row="3"
+                  Grid.Column="1"
+                  VerticalAlignment="Center"
+                  ItemsSource="{local:EnumValues {x:Type mail:SmtpDeliveryMethod}}"
+                  SelectedItem="{Binding DeliveryMethod, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Enable SSL" />
+        <CheckBox Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalAlignment="Center"
+                  IsChecked="{Binding EnableSsl, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Domain" />
+        <TextBox Grid.Row="5"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding Domain, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="User name" />
+        <TextBox Grid.Row="6"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding UserName, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="7"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="User password" />
+        <PasswordBox Grid.Row="7"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     PasswordChanged="PasswordBox_OnPasswordChanged1"
+                     PasswordChar="*" />
+
+        <TextBlock Grid.Row="8"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Repeat user password" />
+        <PasswordBox Grid.Row="8"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     PasswordChanged="PasswordBox_OnPasswordChanged2"
+                     PasswordChar="*" />
+
+        <TextBlock Grid.Row="9"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Sender e-mail" />
+        <TextBox Grid.Row="9"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding SenderEmail, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="10"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Message body" />
+        <TextBox Grid.Row="10"
+                 Grid.Column="1"
+                 VerticalAlignment="Stretch"
+                 AcceptsReturn="True"
+                 Text="{Binding MessageBody, Mode=TwoWay}"
+                 TextWrapping="Wrap" />
+
+        <TextBlock Grid.Row="11"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="Select inpit data file" />
+        <Button Grid.Row="11"
+                Grid.Column="1"
+                MinHeight="20"
+                VerticalAlignment="Center"
+                Command="{Binding SelectInpitFileCommand}"
+                Content="{Binding InputDataFilePath, Mode=TwoWay}" />
+
+        <Button Grid.Row="12"
+                Grid.ColumnSpan="2"
+                Command="{Binding SendCommand}"
                 Content="Send credentials" />
-    </UniformGrid>
+    </Grid>
 </Window>

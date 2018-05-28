@@ -57,13 +57,14 @@ namespace SendArchives.Models
                            .Replace("-", "");
             var folderPath = $@"{tempDirectory}\{userData.Login}_{guid}";
             Directory.CreateDirectory(folderPath);
-            var filePath = Path.Combine(folderPath, @"credentials.txt");
+            var filePath = Path.Combine(folderPath, $"{userData.Login}.txt");
             var content = $"Логин: {userData.Login}, Пароль: {userData.UserPassword}";
             File.WriteAllText(filePath, content);
 
             return new UserFileInfo
             {
                 ArchivePassword = userData.ArchivePassword,
+                Login = userData.Login,
                 Email = userData.Email,
                 FilePath = filePath,
             };
