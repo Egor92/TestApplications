@@ -153,6 +153,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping", "Shipping\Shippi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendArchives", "SendArchives\SendArchives.csproj", "{90628E54-8570-4B8F-9C56-1A97AC24E203}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForGalina", "ForGalina", "{21E291DD-0D9E-45C8-B0A4-B4B39BD78356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISBN.Comparing", "ISBN.Comparing\ISBN.Comparing.csproj", "{B46647ED-40E1-44AD-AE15-04001FDA60F1}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TestApp.vsmdi
@@ -835,6 +839,16 @@ Global
 		{90628E54-8570-4B8F-9C56-1A97AC24E203}.Release|Mixed Platforms.Build.0 = Release|x86
 		{90628E54-8570-4B8F-9C56-1A97AC24E203}.Release|x86.ActiveCfg = Release|x86
 		{90628E54-8570-4B8F-9C56-1A97AC24E203}.Release|x86.Build.0 = Release|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Debug|x86.ActiveCfg = Debug|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Debug|x86.Build.0 = Debug|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|Any CPU.ActiveCfg = Release|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|x86.ActiveCfg = Release|x86
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -849,6 +863,7 @@ Global
 		{C76C35C9-BD31-46CF-BF5A-2C4BC2F65A3E} = {7D3B07D9-FAFF-416D-8D00-5F8043374303}
 		{EE7423C7-0C98-4493-AD93-8C7E7A8E972F} = {7D3B07D9-FAFF-416D-8D00-5F8043374303}
 		{76A1B072-7C1F-4E57-8C47-E7D53FB8F2F4} = {7D3B07D9-FAFF-416D-8D00-5F8043374303}
+		{B46647ED-40E1-44AD-AE15-04001FDA60F1} = {21E291DD-0D9E-45C8-B0A4-B4B39BD78356}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VD_Solution = <?xml version="1.0" encoding="utf-16"?>|§r|§n<DocumentsSolution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">|§r|§n  <m_persistedPinnedDocumentGroupLabels />|§r|§n</DocumentsSolution>
