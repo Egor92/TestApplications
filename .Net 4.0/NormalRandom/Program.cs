@@ -2,78 +2,86 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace NormalRandom
 {
     internal class Program
     {
-        private static readonly Random Random = new Random();
-
+        [STAThread]
         private static void Main(string[] args)
         {
-            var probabilitiesByValue = File.ReadAllLines("input.txt")
-                                           .Select(GetProbabilitiesByValue)
-                                           .Where(x => x != null)
-                                           .ToDictionary(x => x.Value.Key, x => x.Value.Value);
-
-            Console.WriteLine("Press Q to exit");
-            Console.WriteLine("Press ENTER to get next number");
             while (true)
             {
-                var input = Console.ReadLine();
-                if (input != null && input.Trim().ToUpper() == "Q")
-                    return;
-
-                var value = GetValue(probabilitiesByValue);
-                Console.Write(value);
+                try
+                {
+                    if (StartIteration())
+                        return;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                Console.WriteLine();
             }
         }
 
-        private static KeyValuePair<int, double>? GetProbabilitiesByValue(string line)
+        private static bool StartIteration()
         {
-            try
+            Console.WriteLine("Press Q to exit");
+            Console.WriteLine("Press '1' to generate uniform random numbers");
+            Console.WriteLine("Press '2' to generate normal random numbers");
+            Console.WriteLine("Press '3' to display random numbers from 0 to 6");
+
+            var input = Console.ReadLine();
+            if (input == null || input.Trim().ToUpper() == "Q")
+                return true;
+
+            if (input.Trim() == "1")
             {
-                var list = line.Split(';')
-                               .Select(x => x.Trim())
-                               .Where(x => !string.IsNullOrWhiteSpace(x))
-                               .ToList();
-                if (list.Count != 2)
-                    return null;
+                Console.Write("Input minimum: ");
+                var minimum = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Input maximum: ");
+                var maximum = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Input count: ");
+                var count = Convert.ToInt32(Console.ReadLine());
+                var result = Enumerable.Range(0, count)
+                                       .Select(_ => Rand.GetInt32(minimum, maximum + 1).ToString())
+                                       .Aggregate((s1, s2) => string.Format("{0}{1}{2}", s1, Environment.NewLine, s2));
 
-                var value = Convert.ToInt32(list[0]);
-                var probability = Convert.ToDouble(list[1]); 
-                return new KeyValuePair<int, double>(value, probability);
+                Clipboard.SetText(result);
+                Console.WriteLine("Numbers have been copied to clipboard");
             }
-            catch (Exception)
+
+            if (input.Trim() == "2")
             {
-                return null;
+                var probabilitiesByValue = File.ReadAllLines("input.txt")
+                                               .Select(Rand.GetProbabilitiesByValue)
+                                               .Where(x => x != null)
+                                               .ToDictionary(x => x.Value.Key, x => x.Value.Value);
+
+                Console.Write("Input count: ");
+                var count = Convert.ToInt32(Console.ReadLine());
+                var result = Enumerable.Range(0, count)
+                                       .Select(_ => Rand.GetValue(probabilitiesByValue).ToString())
+                                       .Aggregate((s1, s2) => string.Format("{0}{1}{2}", s1, Environment.NewLine, s2));
+
+                Clipboard.SetText(result);
+                Console.WriteLine("Numbers have been copied to clipboard");
             }
-        }
 
-        public static double GetDouble(double min, double max)
-        {
-            return min + (max - min)*Random.NextDouble();
-        }
-
-        public static T GetValue<T>(IDictionary<T, double> probabilitiesByValue)
-        {
-            if (probabilitiesByValue.Values.Any(x => x < 0.0))
-                throw new ArgumentException("Values must be not negative", "probabilitiesByValue");
-            var max = probabilitiesByValue.Values.Sum();
-            if (!(max > 0.0))
-                throw new ArgumentException("Summa of values must be positive", "probabilitiesByValue");
-            var random = GetDouble(0.0, max);
-            var probabilitySum = 0.0;
-            foreach (var pair in probabilitiesByValue)
+            if (input.Trim() == "3")
             {
-                var value = pair.Key;
-                var probability = pair.Value;
+                Console.Write("Input count: ");
+                var count = Convert.ToInt32(Console.ReadLine());
+                var result = Enumerable.Range(0, count)
+                                       .Select(_ => Rand.GetInt32(0, 7).ToString())
+                                       .Aggregate((s1, s2) => string.Format("{0}{1}{2}", s1, Environment.NewLine, s2));
 
-                probabilitySum += probability;
-                if (probabilitySum > random)
-                    return value;
+                Console.WriteLine(result);
             }
-            throw new Exception("Algorithm fail");
+
+            return false;
         }
     }
 }

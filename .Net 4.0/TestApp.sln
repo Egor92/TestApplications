@@ -157,6 +157,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForGalina", "ForGalina", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISBN.Comparing", "ISBN.Comparing\ISBN.Comparing.csproj", "{B46647ED-40E1-44AD-AE15-04001FDA60F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactive.Throttle.TestApp", "Reactive.Throttle.TestApp\Reactive.Throttle.TestApp.csproj", "{9CEECE64-2BD0-4B62-A74D-36990676CC06}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TestApp.vsmdi
@@ -849,6 +851,16 @@ Global
 		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|x86.ActiveCfg = Release|x86
 		{B46647ED-40E1-44AD-AE15-04001FDA60F1}.Release|x86.Build.0 = Release|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Debug|x86.ActiveCfg = Debug|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Debug|x86.Build.0 = Debug|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Release|Any CPU.ActiveCfg = Release|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Release|x86.ActiveCfg = Release|x86
+		{9CEECE64-2BD0-4B62-A74D-36990676CC06}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
