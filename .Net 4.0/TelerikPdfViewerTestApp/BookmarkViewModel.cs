@@ -1,33 +1,53 @@
-﻿using System;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using ReactiveUI;
+using SelectPdf;
 using Telerik.Windows.Controls;
+using System.Linq;
 
 namespace TelerikPdfViewerTestApp
 {
     public struct Bookmark
     {
-        public string Title { get; set; }
-        public double? Left { get; set; }
-        public double? Top { get; set; }
-        public double? Zoom { get; set; }
-        public int PageIndex { get; set; }
+        #region Ctor
+
+        public Bookmark(PdfBookmark pdfBookmark)
+            : this()
+        {
+            Title = pdfBookmark.Text;
+            Left = pdfBookmark.Destination.Location.X;
+            Top = pdfBookmark.Destination.Location.Y;
+            Zoom = pdfBookmark.Destination.ZoomFactor;
+            PageIndex = pdfBookmark.Destination.Page.PageIndex;
+            ChildrenBookmarks = new List<Bookmark>();
+        }
+
+        #endregion
+
+        public string Title { get; private set; }
+        public double? Left { get; private set; }
+        public double? Top { get; private set; }
+        public double? Zoom { get; private set; }
+        public int PageIndex { get; private set; }
+        public List<Bookmark> ChildrenBookmarks { get; private set; }
     }
 
     public class BookmarkViewModel : ReactiveObject
     {
         #region Fields
 
+        private readonly IViewModelFactory _viewModelFactory;
+        private readonly IMessageBus _messageBus;
         private readonly Bookmark _bookmark;
 
         #endregion
 
         #region Ctor
 
-        public BookmarkViewModel(Bookmark bookmark)
+        public BookmarkViewModel(IViewModelFactory viewModelFactory, IMessageBus messageBus, Bookmark bookmark)
         {
+            _viewModelFactory = viewModelFactory;
+            _messageBus = messageBus;
             _bookmark = bookmark;
         }
 
@@ -42,13 +62,19 @@ namespace TelerikPdfViewerTestApp
 
         #endregion
 
-        #region NavigationRequested
+        #region ChildrenBookmarkVMs
 
-        private readonly Subject<Bookmark> _navigationRequested = new Subject<Bookmark>();
+        private BookmarkViewModel[] _childrenBookmarkVMs;
 
-        public IObservable<Bookmark> NavigationRequested
+        public BookmarkViewModel[] ChildrenBookmarkVMs
         {
-            get { return _navigationRequested.AsObservable(); }
+            get { return _childrenBookmarkVMs ?? (_childrenBookmarkVMs = CreateChildrenBookmarkVMs()); }
+        }
+
+        private BookmarkViewModel[] CreateChildrenBookmarkVMs()
+        {
+            return _bookmark.ChildrenBookmarks.Select(_viewModelFactory.CreateBookmarkVM)
+                            .ToArray();
         }
 
         #endregion
@@ -71,7 +97,7 @@ namespace TelerikPdfViewerTestApp
 
         public void Navigate()
         {
-            _navigationRequested.OnNext(_bookmark);
+            _messageBus.SendMessage(_bookmark, AppEvents.NavigationRequested);
         }
     }
 }

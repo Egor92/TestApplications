@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading;
+using ReactiveUI;
 using Telerik.Windows.Documents.Fixed.Model.Navigation;
+using System.Reactive.Linq;
 
 namespace TelerikPdfViewerTestApp
 {
@@ -9,10 +12,14 @@ namespace TelerikPdfViewerTestApp
         {
             InitializeComponent();
 
-            var viewModel = new ViewModel();
+            var messageBus = new MessageBus();
+            var viewModelFactory = new ViewModelFactory(messageBus);
+            var viewModel = new ViewModel(viewModelFactory);
             DataContext = viewModel;
 
-            viewModel.NavigationRequested.Subscribe(OnNavigationRequested);
+            messageBus.Listen<Bookmark>(AppEvents.NavigationRequested)
+                      .ObserveOn(SynchronizationContext.Current)
+                      .Subscribe(OnNavigationRequested);
         }
 
         private void OnNavigationRequested(Bookmark bookmark)

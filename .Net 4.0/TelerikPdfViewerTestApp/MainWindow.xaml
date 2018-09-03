@@ -42,27 +42,25 @@
                 <Separator />
             </StackPanel>
 
-            <ListView Grid.Row="1"
-                      HorizontalContentAlignment="Stretch"
-                      ItemsSource="{Binding BookmarkVMs,
-                                            Mode=OneWay}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
+            <telerik:RadTreeView Grid.Row="1"
+                                 HorizontalContentAlignment="Stretch"
+                                 ItemsSource="{Binding BookmarkVMs, Mode=OneWay}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <telerik:RadTreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding ChildrenBookmarkVMs, Mode=OneWay}">
                         <TextBlock HorizontalAlignment="Stretch"
                                    TextWrapping="Wrap">
                             <Hyperlink Command="{Binding NavigateCommand}">
                                 <Run Text="{Binding Title, Mode=OneWay}" />
                             </Hyperlink>
                         </TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    </HierarchicalDataTemplate>
+                </telerik:RadTreeView.ItemTemplate>
+            </telerik:RadTreeView>
         </Grid>
 
         <telerik:RadPdfViewer x:Name="PdfViewer"
                               Grid.Column="1"
-                              DocumentSource="{Binding DocumentSource,
-                                                       Mode=OneWay,
-                                                       Converter={StaticResource PdfDocumentSourceValueConverter}}" />
+                              DocumentSource="{Binding DocumentSource, Mode=OneWay, Converter={StaticResource PdfDocumentSourceValueConverter}}" />
     </Grid>
 </Window>

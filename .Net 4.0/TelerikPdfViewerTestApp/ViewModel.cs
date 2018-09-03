@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
@@ -12,10 +11,13 @@ namespace TelerikPdfViewerTestApp
 {
     public class ViewModel : ReactiveObject
     {
+        private readonly IViewModelFactory _viewModelFactory;
+
         #region Ctor
 
-        public ViewModel()
+        public ViewModel(IViewModelFactory viewModelFactory)
         {
+            _viewModelFactory = viewModelFactory;
             SubscribeToDocumentSourceChanges();
         }
 
@@ -44,24 +46,19 @@ namespace TelerikPdfViewerTestApp
             if (DocumentSource == null)
                 return;
 
-            var pdfDocument = new PdfDocument(DocumentSource);
-            var bookmarkVMs = pdfDocument.Bookmarks.OfType<PdfBookmark>()
-                                         .Select(CreateBookmarkVM);
-            BookmarkVMs.AddRange(bookmarkVMs);
+            try
+            {
+                var pdfDocument = new PdfDocument(DocumentSource);
+                var bookmarks = BookmarkFactory.CreateBookmarks(pdfDocument);
+                var bookmarkVMs = bookmarks.Select(_viewModelFactory.CreateBookmarkVM);
+                BookmarkVMs.AddRange(bookmarkVMs);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
-        private static BookmarkViewModel CreateBookmarkVM(PdfBookmark pdfBookmark)
-        {
-            var bookmark = new Bookmark
-            {
-                Title = pdfBookmark.Text,
-                Left = pdfBookmark.Destination.Location.X,
-                Top = pdfBookmark.Destination.Location.Y,
-                Zoom = pdfBookmark.Destination.ZoomFactor,
-                PageIndex = pdfBookmark.Destination.Page.PageIndex,
-            };
-            return new BookmarkViewModel(bookmark);
-        }
 
         #endregion
 
@@ -84,19 +81,6 @@ namespace TelerikPdfViewerTestApp
         public ReactiveCollection<BookmarkViewModel> BookmarkVMs
         {
             get { return _bookmarkVMs; }
-        }
-
-        #endregion
-
-        #region NavigationRequested
-
-        public IObservable<Bookmark> NavigationRequested
-        {
-            get
-            {
-                return BookmarkVMs.GetItemsObservable(x => x.NavigationRequested)
-                                  .Select(x => x.NewValue);
-            }
         }
 
         #endregion
