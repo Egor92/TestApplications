@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NormalRandom
 {
-    public class Rand
+    public static class Rand
     {
         private static readonly Random Random = new Random();
 
@@ -34,7 +34,7 @@ namespace NormalRandom
             return min + (max - min)*Random.NextDouble();
         }
 
-        public static double GetInt32(int min, int max)
+        public static int GetInt32(int min, int max)
         {
             return Random.Next(min, max);
         }
