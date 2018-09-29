@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikPie3DApp", "TelerikP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendArchives", "SendArchives\SendArchives.csproj", "{8D09A030-E0C3-4220-A019-E97E25FAB700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNuGetPackage", "ExcelNuGetPackage\ExcelNuGetPackage.csproj", "{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{8D09A030-E0C3-4220-A019-E97E25FAB700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D09A030-E0C3-4220-A019-E97E25FAB700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D09A030-E0C3-4220-A019-E97E25FAB700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
