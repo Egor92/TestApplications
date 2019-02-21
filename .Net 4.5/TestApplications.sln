@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendArchives", "SendArchive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNuGetPackage", "ExcelNuGetPackage\ExcelNuGetPackage.csproj", "{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyClass", "ProxyClass\ProxyClass.csproj", "{65B7C75E-ECA9-4424-A4F1-239160A3B034}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,8 +113,15 @@ Global
 		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0083A0A7-9B3C-4F07-9F15-B792E51DEC8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B7C75E-ECA9-4424-A4F1-239160A3B034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B7C75E-ECA9-4424-A4F1-239160A3B034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B7C75E-ECA9-4424-A4F1-239160A3B034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B7C75E-ECA9-4424-A4F1-239160A3B034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB0D27F3-4018-436A-941D-E018B05A13C8}
 	EndGlobalSection
 EndGlobal
